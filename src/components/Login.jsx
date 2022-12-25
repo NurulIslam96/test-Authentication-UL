@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthProvider';
 import ForgotPass from './ForgotPass';
 
 const Login = () => {
     const {signin,logout} = useContext(AuthContext)
+    const navigate = useNavigate()
     const {register, handleSubmit, formState: { errors },reset} = useForm()
     const handleLogin = (data) =>{
         signin(data.email, data.password)
@@ -14,6 +15,7 @@ const Login = () => {
             const user = result.user;
             if(user.emailVerified){
                 reset()
+                navigate('/user')
                 return toast.success(`Welcome ${user?.displayName}`)
             }else{
                 toast.error("Please Verify Email First. {Check Spam folder}")
