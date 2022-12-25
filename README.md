@@ -1,5 +1,6 @@
 # Unio_labs_Test
 
+N.B: Please Verify Email from Spam folder before login.
 Firebase and MongoDB was used for authentication and storing data purpose.
 
 - Reset Password on Login Page
