@@ -44,7 +44,7 @@ const Register = () => {
       .then(() => {
         verifyEmail()
           .then(() => {
-            fetch("https://unio-labs-server.vercel.app/addUser", {
+            fetch(`${process.env.REACT_APP_server}/addUser`, {
               method: "POST",
               headers: {
                 "content-type": "application/json",

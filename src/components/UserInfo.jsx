@@ -8,7 +8,7 @@ const UserInfo = () => {
   const [userInfo, setUserInfo] = useState();
   useEffect(() => {
     if(user?.email){
-      fetch(`https://unio-labs-server.vercel.app/getUsers/${user?.email}`)
+      fetch(`${process.env.REACT_APP_server}/getUsers/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setUserInfo(data);
